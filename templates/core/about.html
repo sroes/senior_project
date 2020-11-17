@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Join</title>
+  <!--bootstrap includes-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+  {% load static %}
+  <link rel="stylesheet" href="{%static 'CSS/project1.css' %}" />
+  <script src="{%static 'JS/project1.js' %}"></script>
+
+</head>
+<body>
+  {% include "core/navbar.html" %}
+
+  <div class="container">
+
+      <h1>About</h1>
+      <img src="../../static/IMG/scott.jpg" alt="profile_image", width="5" height="6">
+      <h5> My name is Scott Roes. I'm a CINS major, 25 years old, from Thousand Oaks, have a passion for technology learning new things. </h5>
+
+      <h5>I first created the apps for taks, budget, and journal. I then set up the configurations for them in the settings file. To get taks working
+      I used forms and models to add data to my tasks list. I was able to get data from my model to my views smoothly. For my task pie chart in my dashboard i used 
+      chartist.js to display my pie chart. For budget i used similar methods i did from tasks, have forms and models handling data in a sufficient way. Just like my task chart
+      in my dashboard i used chartist.js for my bar chart for budget. My journal was very straight forward, i used data from my views to display the entries and last logged in time in my dashboard 
+      for journal. For all apps i had to create seperate html files to support actions such as adding, editing, and deleting. For styling of my dashboard and buttons i used several bootstrap and jQuery libraries.
+      </h5>
+      <form method="POST">
+
+      </form>
+    </div>
+  </div>
+</body>
+</html>
