@@ -13,7 +13,6 @@ def friends(request):
 	context = {
 		'users': users
 	}
-    
 	return render(request, "friends/home.html", context)
 
 def send_friend_request(request, id):
