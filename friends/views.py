@@ -3,6 +3,7 @@ from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
+from core.forms import JoinForm
 
 from .models import Profile, FriendRequest
 
@@ -16,7 +17,7 @@ def friends(request):
 	return render(request, "friends/home.html", context)
 
 def send_friend_request(request, id):
-	if request.user.is_authenticated():
+	if request.user.is_authenticated:
 		user = get_object_or_404(User, id=id)
 		frequest, created = FriendRequest.objects.get_or_create(
 			from_user=request.user,
@@ -24,7 +25,7 @@ def send_friend_request(request, id):
 		return HttpResponseRedirect('/users')
 
 def cancel_friend_request(request, id):
-	if request.user.is_authenticated():
+	if request.user.is_authenticated:
 		user = get_object_or_404(User, id=id)
 		frequest = FriendRequest.objects.filter(
 			from_user=request.user,
@@ -54,6 +55,7 @@ def profile_view(request, slug):
 	sent_friend_requests = FriendRequest.objects.filter(from_user=p.user)
 	rec_friend_requests = FriendRequest.objects.filter(to_user=p.user)
 
+
 	friends = p.friends.all()
 
 	# is this user our friend
@@ -66,12 +68,15 @@ def profile_view(request, slug):
 			from_user=request.user).filter(to_user=p.user)) == 1:
 				button_status = 'friend_request_sent'
 
+
 	context = {
 		'u': u,
+
 		'button_status': button_status,
 		'friends_list': friends,
 		'sent_friend_requests': sent_friend_requests,
 		'rec_friend_requests': rec_friend_requests
 	}
-
 	return render(request, "friends/profile.html", context)
+
+

@@ -1,4 +1,4 @@
-{% load static %}
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -221,7 +221,7 @@ a:hover
 }
 
 
-    </style>
+</style>
 
 
 
@@ -232,9 +232,10 @@ a:hover
     <!--
     <h1>Profile Page</h1> -->
     <br>
+    <P> Profile</p>
     <div class="container-fluid profileCard first-element">
       <div class="row">
-        {% if user %}
+        {% if is_user %}
         {% if is_an_account %}
         <div class="card col-4">
           <div class="profileImage"></div>
@@ -248,5 +249,13 @@ a:hover
     </div>
     <br>
     <div class="container-fluid profileCard first-element">
+
+    {% if not is_personal_profile %}
+      <h3>{{user_info.first_name}} {{ user_info.last_name}}'s Stats:</h3>
+    {% else %}
+      <h3>Your Stats:</h3>
+      {% endif %}
+    </div>
+    <div class="row">
     {% endif %}
     {% endif %}

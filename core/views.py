@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from chat.models import UserProfile
+from friends.models import FriendRequest, Profile
 from django.contrib.auth.decorators import login_required
 
 
