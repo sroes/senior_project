@@ -10,23 +10,33 @@
 <html>
 <head>
 <link href='https://fonts.googleapis.com/css?family=Fredoka One' rel='stylesheet'>
+<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Comfortaa:wght@300&display=swap" rel="stylesheet">
 <style>
 h1 {
-    font-family: 'Fredoka One';font-size: 32px;
+    font-family: 'Comfortaa';font-size: 25px;
+    color: #8A2BE2;
+}
+h2 {
+    font-family: 'Fredoka One';font-size: 50px;
     color: #8A2BE2;
 }
 
 
 </style>
-
+<h2>&nbsp;Chats</h2>
     <meta charset="utf-8"/>
     <title>Chat Rooms</title>
 </head>
 <body>
+  <div class = "row">
+    <div class = "col-md-4">
+      <div class ="container-fluid">
 <div class = "jumbotron">
     <h1>What chat room would you like to enter?</h1>
-    <input id="room-name-input" type="text" size="50"><br>
+    <input id="room-name-input" type="text" size="20"><br>
     <input id="room-name-submit" type="button" value="Enter">
+</div>
+</div>
 </div>
     <script>
         document.querySelector('#room-name-input').focus();
