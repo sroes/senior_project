@@ -54,6 +54,7 @@ def profile_view(request, slug):
 	u = p.user
 	sent_friend_requests = FriendRequest.objects.filter(from_user=p.user)
 	rec_friend_requests = FriendRequest.objects.filter(to_user=p.user)
+	users = Profile.objects.exclude(user=request.user)
 
 
 	friends = p.friends.all()
@@ -71,7 +72,7 @@ def profile_view(request, slug):
 
 	context = {
 		'u': u,
-
+        'users': users,
 		'button_status': button_status,
 		'friends_list': friends,
 		'sent_friend_requests': sent_friend_requests,

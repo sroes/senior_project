@@ -29,11 +29,13 @@ from django.views.generic import TemplateView
 urlpatterns = [
     path('', core_views.home, name='home'),
     path('chat/', include('chat.urls')),
-    path('friends/', include('friends.urls')),
-
     path('users/', include('friends.urls')),
-    
-    path('users/<slug>/', friends_views.profile_view, name='profile_view'),
+
+
+    path('users/', friends_views.friends, name='profile_view'),
+
+
+    path('friends/<slug>/', friends_views.profile_view, name='profile_view'),
    # path('friends/', friends_views.friends, name='friends'),
     path('admin/', admin.site.urls),
     path('login/', core_views.user_login, name='login'),

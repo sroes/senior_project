@@ -6,6 +6,7 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link href='https://fonts.googleapis.com/css?family=Fredoka One' rel='stylesheet'>
+<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Comfortaa:wght@300&display=swap" rel="stylesheet">
 <style>
 h1 {
     font-family: 'Fredoka One';font-size: 50px;
@@ -15,20 +16,118 @@ h2 {
     font-family: 'Fredoka One';font-size: 42px;
     color: #8A2BE2;
 }
+h {
+    font-family: 'Fredoka One';font-size: 20px;
+    color: #8A2BE2;
+}
+h4 {
+    font-family: 'Comfortaa';font-size: 25px;
+    color: #2963b9;
+}
+
+
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: #3498DB;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #9d19c2;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
 
 </style>
 
 {% block content %}
 
-	<div class="container text-center">
-	<span><a href="/users/">Home</a></span>
+
+
+
+<h1>&nbsp;Users</h1>
+
+<div class = "col-md-4">
+
+     <div class="jumbotron" style="background-color:#D3D3D3">
+<h4> To add friends find all available users below who have signed up </h4>
+<div class="dropdown">
+  <h>&nbsp;&nbsp;&nbsp;<button onclick="myFunction()" class="dropbtn">Find Users</button>
+  <div id="myDropdown" class="dropdown-content">
+
+	{% for user_p in users %}
+		<a href="{{ user_p.get_absolute_url }}">{{ user_p }}</a>
+	{% endfor %}
 	
+             </div>
+            </div>
+		  </div>
+        </div>
+      </div>
+  </div>
+
+<script>
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+
 	{% if request.user == u %}
 
-		<h1>Friends</h1>
+		<h1>&nbsp;My Friends</h1>
 		
 		{% for friend in friends_list %}
-			<a href="{{ c }}">{{ friend.user.username }}</a>
+	
+			<ul><a href="{{ c }}"> <h4>{{ friend.user.username }}</h4></a></ul>
+			
 		{% endfor %}
 	
   <div class = "row">
@@ -40,7 +139,7 @@ h2 {
 		<h2>Sent Friend requests</h2>
 		<ul>
 		{% for s_request in sent_friend_requests %}
-			<li>{{ s_request.to_user.username }}</li>
+		<h4>{{ s_request.to_user.username }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4>
 		{% endfor %}
 		</ul>
 	
@@ -65,7 +164,8 @@ h2 {
 	{% else %}
 
 		{% if button_status == 'not_friend' %}
-			<small><a class='btn btn-primary' href="/users/friend-request/send/{{ u.id }}">Add Friend</a></small>
+		<h4>&nbsp; Click to add friend </h4>
+			<small >&nbsp;&nbsp;&nbsp;&nbsp;<a class='btn btn-primary' href="/users/friend-request/send/{{ u.id }}">Add Friend</a></small>
 		{% elif button_status == 'friend_request_sent' %}
 			<small><a class="btn btn-warning" href="/users/friend-request/cancel/{{ u.id }}">Cancel Request</a></small>
 		{% endif %}
