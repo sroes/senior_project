@@ -1,7 +1,18 @@
 <!DOCTYPE html>
+
 <html lang = "en" dir = "lir">
+ <script src="jquery.js"></script> 
+    <script> 
+    $(function(){
+      $("#includedContent").load("friends/profile.html"); 
+    });
+    </script> 
+    <script type="friends/profile.html" src="friends/profile.html"></script>
+
+
 
 <style>
+
 
 .jumbotron{
     background-color: #8A2BE2;
@@ -12,6 +23,7 @@
 
  <head>
  {% include "core/navbar.html" %}
+
   <meta charset="utf-8">
 
  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -38,11 +50,16 @@ h2 {
     font-family: 'Fredoka One';font-size: 42px;
     color: #8A2BE2;
 }
+h4 {
+    font-family: 'Fredoka One';font-size: 42px;
+    color: #8A2BE2;
+}
 
 </style>
 </head>
 <body>
 
+<include src = "profile.html" type = "friends/profile.html" />
 <h1> &nbsp;Chat Network</h1>
 </div>
   <div class = "row">
@@ -58,7 +75,7 @@ h2 {
 </svg>
   
         <form action "\chats\">
-          <input type = "submit" class = "btn btn-primary" style="background-color:#8A2BE2" value = "Chats" />
+         <a class = "btn btn-primary" style="background-color:#8A2BE2" href="/chat/">Chats</a>
         </form>
         <script>
            new Chartist.Pie('#chart1',
@@ -76,21 +93,20 @@ h2 {
     <div class="container-fluid">
     <div class="jumbotron" style="background-color:#D3D3D3">
           <div align="center">
+
                 <h2>Friends</h2>
+
        <svg width="10em" height="10em" viewBox="0 0 16 16" class="bi bi-people" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1h7.956a.274.274 0 0 0 .014-.002l.008-.002c-.002-.264-.167-1.03-.76-1.72C13.688 10.629 12.718 10 11 10c-1.717 0-2.687.63-3.24 1.276-.593.69-.759 1.457-.76 1.72a1.05 1.05 0 0 0 .022.004zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10c-1.668.02-2.615.64-3.16 1.276C1.163 11.97 1 12.739 1 13h3c0-1.045.323-2.086.92-3zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
 </svg>
         <form action "\friends\">
-          <input type = "submit" class = "btn btn-primary" style="background-color:#8A2BE2" value = "Friends" />
+        
+        <h4>
+         <a class = "btn btn-primary" style="background-color:#8A2BE2" href="/friends/{{ user.username }}">Friends</a>
         </form>
-        <script>
-           new Chartist.Bar('#chart2',
-                  {  series:[{{projected}}, {{actual}}]},
-                  { seriesBarDistance: 10},
-                  [['screen', { seriesBarDistance: 5,
-                  axisX: { labelInterpolationFnc: function(value){ return value[0];}}}]]);
-        </script>
+      </h4>
 
+         
           </div>
         </div>
       </div>
@@ -101,9 +117,9 @@ h2 {
         <div class="jumbotron" style="background-color:#D3D3D3">
            
                     <h2>Profile</h2>
-                <form action "\profile\">
+                <a class = "btn btn-primary" style="background-color:#8A2BE2" href="/profile/{{ user.username }}">{{ user.username }}</a>
                 
-                <h3> {{user}} </h3>
+       
 
                 
                 
