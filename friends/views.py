@@ -22,7 +22,7 @@ def send_friend_request(request, id):
 		frequest, created = FriendRequest.objects.get_or_create(
 			from_user=request.user,
 			to_user=user)
-		return HttpResponseRedirect('/users')
+		return HttpResponseRedirect('/friends/{}'.format(request.user.profile.slug))
 
 def cancel_friend_request(request, id):
 	if request.user.is_authenticated:
@@ -31,7 +31,7 @@ def cancel_friend_request(request, id):
 			from_user=request.user,
 			to_user=user).first()
 		frequest.delete()
-		return HttpResponseRedirect('/users')
+		return HttpResponseRedirect('/users/{}'.format(request.user.profile.slug))
 
 def accept_friend_request(request, id):
 	from_user = get_object_or_404(User, id=id)
@@ -72,6 +72,7 @@ def profile_view(request, slug):
 
 	context = {
 		'u': u,
+		'user': request.user,
         'users': users,
 		'button_status': button_status,
 		'friends_list': friends,
