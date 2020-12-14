@@ -3,17 +3,14 @@
   <head>
     <meta charset="utf-8">
     <title>Profile</title>
-
+    {% include "core/navbar.html" %}
+    
 
   </head>
   <body>
-    {% include "core/navbar.html" %}
-    <!--
-    <h1>Profile Page</h1> -->
-    <br>
-    <div class="container-fluid profileCard first-element">
+  
+    <div class="container-fluid first-element">
       <div class="row">
-        {% if user %}
         {% if is_an_account %}
         <div class="card col-4">
           <div class="profileImage"></div>
@@ -27,5 +24,4 @@
       </div>
     </div>
     <br>
-    <div class="container-fluid profileCard first-element">
 
