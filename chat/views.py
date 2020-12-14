@@ -32,6 +32,7 @@ def room(request, room_name, username=None):
      context = {
       'room_name_json': mark_safe(json.dumps(room_name)),
       'username': mark_safe(json.dumps(request.user.username)),
+
   
       
      }
@@ -44,9 +45,10 @@ def room(request, room_name, username=None):
 @login_required(login_url='/login/')
 def createProfile(request):
     instance = get_object_or_404(UserProfile, user=request.user)
-    profile = UserProfile.objects.get(user=request.user)
+    data = {'bio': instance.bio, 'picture':instance.picture}
+    profile = UserProfile.objects.all().get(user=request.user)
     if request.method == "POST":
-        form_instance = ProfileForm(request.POST, request.FILES)
+        form_instance = ProfileForm(request.POST, request.FILES, instance=instance, initial=data)
         if(form_instance.is_valid()):
             instance = form_instance.save(commit=False)
             instance.user = request.user
