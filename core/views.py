@@ -5,13 +5,21 @@ from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from chat.models import UserProfile
+from core.forms import ProfileFriends
 from friends.models import FriendRequest, Profile
 from django.contrib.auth.decorators import login_required
 
 
 def home(request):
+    friends = []
+    if request.user.is_authenticated:
+        profile = Profile.objects.get(user=request.user)
+        friends = profile.friends.all()
 
-    return render(request, 'core/home.html')
+    context = {
+        "friends_list": friends,
+    } 
+    return render(request, 'core/home.html', context=context)
 
 
 
@@ -21,12 +29,13 @@ def join(request):
         join_form = JoinForm(request.POST)
         if (join_form.is_valid()):
             # Save form data to DB
+
             user = join_form.save()
             # Encrypt the password
             user.set_password(user.password)
             # Save encrypted password to DB
             user.save()
-            UserProfile.objects.get_or_create(user=user)
+            #UserProfile.objects.get_or_create(user=user)
             # Success! Redirect to home page.
             return redirect("/")
         else:
@@ -36,6 +45,14 @@ def join(request):
         join_form = JoinForm()
         page_data = { "join_form": join_form }
         return render(request, 'core/join.html', page_data)
+    
+    join_form = JoinForm()
+    context = {
+        "user": request.user,
+        "join_form": join_form,
+    }
+    return render(request, 'core/join.html', context=context)
+
 
 def user_login(request):
     if (request.method == 'POST'):
@@ -45,7 +62,7 @@ def user_login(request):
             username = login_form.cleaned_data["username"]
             password = login_form.cleaned_data["password"]
             # Django's built-in authentication function:
-            user = authenticate(username=username, password=password)
+            user = authenticate(request, username=username, password=password)
             # If we have a user
             if user:
                 #Check it the account is active
