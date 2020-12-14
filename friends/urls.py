@@ -12,7 +12,7 @@ from .views import (
 	)
 
 urlpatterns = [
-	url(r'^users/', friends, name='friends'),
+	url(r'^$', friends, name='friends'),
     url(r'^(?P<slug>[\w-]+)/$', profile_view),
     url(r'^friend-request/send/(?P<id>[\w-]+)/$', send_friend_request),
     url(r'^friend-request/cancel/(?P<id>[\w-]+)/$', cancel_friend_request),
