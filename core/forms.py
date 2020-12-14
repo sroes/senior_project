@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from chat.models import UserProfile
+from friends.models import Profile
 
 class JoinForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput(attrs={'autocomplete': 'new-password'}))
@@ -16,3 +17,8 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
         exclude = ['user', 'books_view_hide_completed', 'reviews_view_hide_others']
+
+class ProfileFriends(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ('user', 'friends')
