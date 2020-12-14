@@ -2,238 +2,15 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
     <title>Profile</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
-  
-  <link rel="stylesheet" href = "//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
-  <script src = "//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
-
-    <style>
-    table {
-  border-collapse: collapse;
-}
-
-table {
-  border: 2px solid #e3f2fd;
-}
-
-th {
-  background-color: #e3f2fd;
-  padding-left: 10px;
-  padding-right: 10px;
-  color: #5bc0de;
-}
-tr{
-  padding-left:10px;
-}
-tr:hover {background-color: #f5f5f5;}
-td {
-  border-bottom: 1px solid #ddd;
-  padding-top:10px;
-  padding-left:10px;
-  padding-bottom:5px;
-  padding-right:10px;
-}
-
-.card {
-  text-align: center;
-}
-
-.title {
-  color: grey;
-  font-size: 18px;
-}
-
-.profileCard {
-  margin-left: 20px;
-}
-
-.profileCardContact {
-  border: none;
-  outline: 0;
-  display: inline-block;
-  padding: 8px;
-  color: white;
-  background-color: #000;
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
-  font-size: 18px;
-}
-
-
-#slogan {
-  padding-top: 160px;
-}
-
-.jumbotronbig {
-  height: 100vh;
-}
-
-.jumboImg {
-  background-image: url("/static/media/books.jpg");
-  background-size: cover;
-}
-
-.jumbotron .overlay {
-  background-color: #000000;
-  position: absolute;
-  top: 0%;
-  bottom: 0%;
-  left: 0px;
-  right: 0px;
-  opacity: 0.75;
-  filter:alpha(opacity=75);
-  z-index: 2;
-}
-.jumbotron .scroll-down {
-  height: 80px;
-  width: 110px;
-  display: block;
-  position: absolute;
-  bottom: 0px;
-  right: 45%;
-  background-color: transparent;
-  text-align: center;
-  z-index: 6;
-}
-.jumbotron .container h1 {
-  padding-bottom: 20px;
-  order-bottom: 1px solid #FFFFFF;
-  border-bottom-color: rgba(255,255,255,0.35);
-  display: inline-block;
-}
-
-
-.slide-bottom {
-	-webkit-animation: slide-bottom 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-	        animation: slide-bottom 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-}
-
-@-webkit-keyframes slide-bottom {
-  0% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-  100% {
-    -webkit-transform: translateY(100px);
-            transform: translateY(100px);
-  }
-}
-@keyframes slide-bottom {
-  0% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-  100% {
-    -webkit-transform: translateY(100px);
-            transform: translateY(100px);
-  }
-}
-
-
-@-moz-keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    -moz-transform: translateY(0);
-    transform: translateY(0);
-  }
-  40% {
-    -moz-transform: translateY(-30px);
-    transform: translateY(-30px);
-  }
-  60% {
-    -moz-transform: translateY(-15px);
-    transform: translateY(-15px);
-  }
-}
-@-webkit-keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-  40% {
-    -webkit-transform: translateY(-30px);
-    transform: translateY(-30px);
-  }
-  60% {
-    -webkit-transform: translateY(-15px);
-    transform: translateY(-15px);
-  }
-}
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    -moz-transform: translateY(0);
-    -ms-transform: translateY(0);
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-  40% {
-    -moz-transform: translateY(-30px);
-    -ms-transform: translateY(-30px);
-    -webkit-transform: translateY(-30px);
-    transform: translateY(-30px);
-  }
-  60% {
-    -moz-transform: translateY(-15px);
-    -ms-transform: translateY(-15px);
-    -webkit-transform: translateY(-15px);
-    transform: translateY(-15px);
-  }
-}
-
-.arrow {
-  position: relative;
-  top: 100px;
-  bottom: 0px;
-  left: 50%;
-  margin-left: -20px;
-  width: 40px;
-  height: 40px;
-  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik0yOTMuNzUxLDQ1NS44NjhjLTIwLjE4MSwyMC4xNzktNTMuMTY1LDE5LjkxMy03My42NzMtMC41OTVsMCwwYy0yMC41MDgtMjAuNTA4LTIwLjc3My01My40OTMtMC41OTQtNzMuNjcyICBsMTg5Ljk5OS0xOTBjMjAuMTc4LTIwLjE3OCw1My4xNjQtMTkuOTEzLDczLjY3MiwwLjU5NWwwLDBjMjAuNTA4LDIwLjUwOSwyMC43NzIsNTMuNDkyLDAuNTk1LDczLjY3MUwyOTMuNzUxLDQ1NS44Njh6Ii8+DQo8cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNMjIwLjI0OSw0NTUuODY4YzIwLjE4LDIwLjE3OSw1My4xNjQsMTkuOTEzLDczLjY3Mi0wLjU5NWwwLDBjMjAuNTA5LTIwLjUwOCwyMC43NzQtNTMuNDkzLDAuNTk2LTczLjY3MiAgbC0xOTAtMTkwYy0yMC4xNzgtMjAuMTc4LTUzLjE2NC0xOS45MTMtNzMuNjcxLDAuNTk1bDAsMGMtMjAuNTA4LDIwLjUwOS0yMC43NzIsNTMuNDkyLTAuNTk1LDczLjY3MUwyMjAuMjQ5LDQ1NS44Njh6Ii8+DQo8L3N2Zz4=);
-  background-size: contain;
-}
-
-.bounce {
-  -moz-animation: bounce 2s infinite;
-  -webkit-animation: bounce 2s infinite;
-  animation: bounce 2s infinite;
-}
-
-a:hover
-{
-     color:#00A0C6;
-     text-decoration:none;
-     cursor:pointer;
-}
-
-.avatar {
-  vertical-align: middle;
-  margin: auto;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-}
-
-
-</style>
-
-
-
+    
   </head>
   <body>
     {% include "core/navbar.html" %}
 
-    <!--
-    <h1>Profile Page</h1> -->
-    <br>
-    <P> Profile</p>
-    <div class="container-fluid profileCard first-element">
+    
+    <div class="container-fluid first-element">
+    <h9>Profile</h9>
       <div class="row">
         {% if is_user %}
         {% if is_an_account %}
@@ -244,18 +21,11 @@ a:hover
           <h3>{{ user_info.username }}</h3>
           <p class="title">{{ user_info.email }}</p>
           <p class="title">{{ user_info.UserProfile.bio }}</p>
-        </div>
-      </div>
-    </div>
+         </div>
+       </div>
+     </div>
     <br>
-    <div class="container-fluid profileCard first-element">
 
-    {% if not is_personal_profile %}
-      <h3>{{user_info.first_name}} {{ user_info.last_name}}'s Stats:</h3>
-    {% else %}
-      <h3>Your Stats:</h3>
-      {% endif %}
-    </div>
-    <div class="row">
+
     {% endif %}
     {% endif %}
