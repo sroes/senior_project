@@ -26,7 +26,7 @@ SECRET_KEY = 'fu(-2i*u1g+uy&dci%^18bqicm*hq8zys*!4dlccs5@!h&o#ai'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['justdjango-chat.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['34.105.49.64', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -149,7 +149,7 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media')
 
@@ -168,7 +168,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.BasicAuthentication',
     ),
 }
-CORS_ORIGIN_WHITELIST = ('localhost:3000')
+CORS_ORIGIN_WHITELIST = ['http://localhost:3000']
 ACCOUNT_EMAIL_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'username'
 ACCOUNT_EMAIL_VERIFICATION = 'none'
